@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- 
+Jampack
+Author: Hencework
+Contact: contact@hencework.com
+-->
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_name }} - SudaByte Cases</title>
+    <meta name="description" content="A modern CRM Dashboard Template with reusable and flexible components for your SaaS web applications by hencework. Based on Bootstrap."/>
+    
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+	<!-- Daterangepicker CSS -->
+    <link href="/static/vendors/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<!-- Data Table CSS -->
+    <link href="/static/vendors/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/vendors/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- CSS -->
+    <link href="/static/dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+   	<!-- Wrapper -->
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<!-- Top Navbar -->
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<!-- Start Nav -->
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+
+			</div>
+			<!-- /Start Nav -->
+			
+			<!-- End Nav -->
+			<div class="nav-end-wrap">
+				<ul class="navbar-nav flex-row">
+
+
+					<li class="nav-item">
+						<div class="dropdown ps-2">
+							<a class=" dropdown-toggle no-caret" href="#" role="button" data-bs-display="static" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside" aria-expanded="false">
+								<div class="avatar avatar-rounded avatar-xs">
+									<img src="/static/dist/img/avatar12.jpg" alt="user" class="avatar-img">
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<div class="p-2">
+									<div class="media">
+										<div class="media-head me-2">
+											<div class="avatar avatar-primary avatar-sm avatar-rounded">
+												<span class="initial-wrap">Hk</span>
+											</div>
+										</div>
+										<div class="media-body">
+											<div class="dropdown">
+												<a href="#">{{ request.user.first_name }}</a>
+											</div>
+											<div class="fs-7">{{ request.user.email }}</div>
+										</div>
+									</div>
+								</div>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#"><span class="dropdown-icon feather-icon"><i data-feather="check-square"></i></span><span>Subscriptions</span></a>
+								<a class="dropdown-item" href="#"><span class="dropdown-icon feather-icon"><i data-feather="settings"></i></span><span>Settings</span></a>
+								<a class="dropdown-item" href="/logout/"><span class="dropdown-icon feather-icon"><i data-feather="log-out"></i></span><span>Logout</span></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- /End Nav -->
+			</div>									
+		</nav>
+		<!-- /Top Navbar -->
+
+        <!-- Vertical Nav -->
+        <div class="hk-menu">
+			<!-- Brand -->
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand" href="/">
+						<img style="margin-left: 0px;max-height: 40px;" class="brand-img img-fluid" src="/static/dist/img/logo-light.png" alt="brand" />
+					</a>
+				</span>
+			</div>
+			<!-- /Brand -->
+
+			<!-- Main Menu -->
+			<div data-simplebar class="nicescroll-bar">
+				<div class="menu-content-wrap">
+					<div class="menu-group">
+						<ul class="navbar-nav flex-column">
+
+							<li class="nav-item {% if page_name == 'Home' %}active{% endif %}">
+								<a class="nav-link" href="/">
+									<span class="nav-icon-wrap">
+										<span class="svg-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-template" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+												<rect x="4" y="4" width="16" height="4" rx="1" />
+												<rect x="4" y="12" width="6" height="8" rx="1" />
+												<line x1="14" y1="12" x2="20" y2="12" />
+												<line x1="14" y1="16" x2="20" y2="16" />
+												<line x1="14" y1="20" x2="20" y2="20" />
+											</svg>
+										</span>
+									</span>
+									<span class="nav-link-text">Dashboard</span>
+								</a>
+							</li>
+
+
+
+
+							<li class="nav-item {% if page_name == 'Users' %}active{% endif %}">
+								<a class="nav-link" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#dash_chat">
+									<span class="nav-icon-wrap">
+										<span class="svg-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+										</span>
+									</span>
+									<span class="nav-link-text">Users</span>
+								</a>
+
+								<ul id="dash_chat" class="nav flex-column collapse  nav-children">
+									<li class="nav-item">
+										<ul class="nav flex-column">
+											<li class="nav-item">
+												<a class="nav-link" href="/users/create/"><span class="nav-link-text">Create User</span></a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="/users/"><span class="nav-link-text">All Users</span></a>
+											</li>
+										</ul>	
+									</li>	
+								</ul>	
+							</li>	
+
+
+
+							<li class="nav-item {% if page_name == 'Settings' %}active{% endif %}">
+								<a class="nav-link" href="/settings/">
+									<span class="nav-icon-wrap">
+										<span class="svg-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+										</span>
+									</span>
+									<span class="nav-link-text">Settings</span>
+								</a>
+							</li>
+
+
+                            <li class="nav-item">
+								<a class="nav-link" href="/logout">
+									<span class="nav-icon-wrap">
+                                        <i data-feather="log-out"></i>
+									</span>
+									<span class="nav-link-text">Logout</span>
+								</a>
+							</li>
+
+						</ul>	
+					</div>
+					<div class="menu-gap"></div>
+
+
+
+				</div>
+			</div>
+			<!-- /Main Menu -->
+		</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+
+		<!-- /Chat Popup -->
+
+        {% block content %}
+        {% endblock %}
+
+
+
+	</div>
+
+        <div class="hk-footer" style="text-align: center;">
+            <footer class="container-xxl footer">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <p class="footer-text"><span class="copy-text">SudaByte © 2025 All rights reserved.</span> </p>
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+
+    <!-- /Wrapper -->
+
+	<!-- jQuery -->
+    <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+   	<script src="/static/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="/static/dist/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="/static/dist/js/dropdown-bootstrap-extended.js"></script>
+
+	<!-- Simplebar JS -->
+	<script src="/static/vendors/simplebar/dist/simplebar.min.js"></script>
+	
+	<!-- Data Table JS -->
+	<script src="/static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="/static/vendors/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+	<script src="/static/vendors/jszip/dist/jszip.min.js"></script>
+	<script src="/static/vendors/pdfmake/build/pdfmake.min.js"></script>
+	<script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+	<script src="/static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="/static/vendors/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+	<script src="/static/vendors/datatables.net-select/js/dataTables.select.min.js"></script>
+	<script src="/static/vendors/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+	<script src="/static/vendors/datatables.net-rowreorder/js/dataTables.rowReorder.min.js"></script>		
+
+	<!-- Daterangepicker JS -->
+    <script src="/static/vendors/moment/min/moment.min.js"></script>
+	<script src="/static/vendors/daterangepicker/daterangepicker.js"></script>
+	<script src="/static/dist/js/daterangepicker-data.js"></script>
+
+
+</body>
+</html>

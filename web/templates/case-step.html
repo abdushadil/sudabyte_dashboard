@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Main Content -->
+<div class="hk-pg-wrapper">
+	<div class="container-xxl">
+		<!-- Page Header -->
+		<div class="hk-pg-body">
+			<div class="row">
+				<div class="col-12 row">
+					<div class="card">
+						<div class="card-header">
+							<h5>{{ current_activity.step.case.title_en }}</h5>
+						</div>
+						<div class="card-body row">
+							<div class="col-12 col-md-4">
+								<img style="border-radius: 12px;width: 100%;height: inherit;" src="{{ current_activity.step.case.image.url }}" />
+							</div>
+
+							<div class="col-12 col-md-8">
+								<p class="card-text">{{ current_activity.step.case.description_en }}</p>
+							</div>
+	
+
+
+
+							<div class="col-12 mt-5">
+								<div class="hk-wizard hk-wizard-horizontal hk-wizard-label-vertical hk-wizard-dot">
+									
+									
+									{% for step in final_steps %}
+									{% if step.id == current_activity.step.id %}
+
+										{% if step.status == 1 %}
+										<div class="hk-wizard-item hk-wizard-item-finish">
+											<div class="hk-wizard-item-container">
+												<div class="hk-wizard-item-tail"></div>
+												<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+												<div class="hk-wizard-item-content">
+													<div class="hk-wizard-item-title">Finished</div>
+													<div class="hk-wizard-item-description">{{ step.title_en}}</div>
+												</div>
+											</div>
+										</div>
+										{% else %}
+										<div class="hk-wizard-item hk-wizard-item-process hk-wizard-item-active">
+											<div class="hk-wizard-item-container">
+												<div class="hk-wizard-item-tail"></div>
+												<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+												<div class="hk-wizard-item-content">
+													<div class="hk-wizard-item-title">In Progress</div>
+													<div class="hk-wizard-item-description">{{ step.title_en}}</div>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+									{% elif step.status == 1 %}
+										<div class="hk-wizard-item hk-wizard-item-finish">
+											<div class="hk-wizard-item-container">
+												<div class="hk-wizard-item-tail"></div>
+												<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+												<div class="hk-wizard-item-content">
+													<div class="hk-wizard-item-title">Finished</div>
+													<div class="hk-wizard-item-description">{{ step.title_en}}</div>
+												</div>
+											</div>
+										</div>
+									{% else %}
+										<div class="hk-wizard-item hk-wizard-item-wait">
+											<div class="hk-wizard-item-container">
+												<div class="hk-wizard-item-tail"></div>
+												<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+												<div class="hk-wizard-item-content">
+													<div class="hk-wizard-item-title">Waiting</div>
+													<div class="hk-wizard-item-description">{{ step.title_en}}</div>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+									{% endfor %}
+									
+									{% comment %} <div class="hk-wizard-item hk-wizard-item-process hk-wizard-item-active">
+										<div class="hk-wizard-item-container">
+											<div class="hk-wizard-item-tail"></div>
+											<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+											<div class="hk-wizard-item-content">
+												<div class="hk-wizard-item-title">In Progress</div>
+												<div class="hk-wizard-item-description">This is a description.</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="hk-wizard-item hk-wizard-item-wait">
+										<div class="hk-wizard-item-container">
+											<div class="hk-wizard-item-tail"></div>
+											<div class="hk-wizard-item-icon"><span class="hk-wizard-icon"><span class="hk-wizard-icon-dot"></span></span></div>
+											<div class="hk-wizard-item-content">
+												<div class="hk-wizard-item-title">Waiting</div>
+												<div class="hk-wizard-item-description">This is a description.</div>
+											</div>
+										</div>
+									</div> {% endcomment %}
+
+
+								</div>
+							</div>
+
+
+							<div class="col-12 mt-5">
+								<h4>{{ current_activity.step.title_en }}</h4>
+								<p>{{ current_activity.step.description_en }}</p>
+							</div>
+							
+							{% if success %}
+							<div class="alert alert-success mt-3" role="alert">
+								{{ success }}
+							</div>
+							{% endif %}
+
+							{% if error %}
+							<div class="alert alert-danger mt-3" role="alert">
+								{{ error }}
+							</div>
+							{% endif %}
+
+							{% if not success %}
+							<div class="col-12">
+								<form method="POST" action="/cases/{{ current_activity.step.case.id }}/continue/">
+									{% csrf_token %}
+									<input name="flag" class="form-control form-control-lg mt-3" type="text" placeholder="Enter the flag here (Layout: {{ current_activity.step.flag_layout }})">
+									<button class="btn btn-primary mt-3">Submit Flag</button>
+								</form>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+
+
+
+
+
+				</div>
+			</div>	
+		</div>
+<!-- /Main Content -->
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Main Content -->
+<div class="hk-pg-wrapper">
+	<div class="container-xxl">
+		<!-- Page Header -->
+		<div class="hk-pg-header pt-7">
+			<div class="d-flex">
+				<div class="d-flex flex-wrap justify-content-between flex-1">
+					<div class="mb-lg-0 mb-2">
+						<h1 class="pg-title">Welcome back {{ request.user.first_name }}</h1>
+						<p>Start a new case or continue investigating current cases</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hk-pg-body">
+
+		</div>
+<!-- /Main Content -->
+{% endblock %}
