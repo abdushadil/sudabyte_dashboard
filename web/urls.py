@@ -14,5 +14,6 @@ urlpatterns = [
     
     
     # Settings Management
-    path('settings/', views.settings)
+    path('settings/', views.settings),
+    path('settings/services/<int:service_id>/toggle/', views.service_toggle),
 ]

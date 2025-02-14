@@ -258,80 +258,34 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="title-lg fs-5"><span>Services Management</span></div>
-									<p class="mb-4">Connect suitable apps with your app and get notifications wherever you go</p>
 									<ul class="advance-list">
+
+										{% for service in services %}
 										<li class="advance-list-item transform-none shadow-none">
 											<div class="d-flex align-items-center justify-content-between">
 												<div class="media align-items-center">
 													<div class="media-head me-3">
 														<div class="avatar">
-															<img src="/static/dist/img/symbol-avatar-6.png" alt="user" class="avatar-img">
+															<img src="{{ service.logo.url }}" alt="user" style="object-fit:contain;" class="avatar-img">
 														</div>
 													</div>
 													<div class="media-body">
-														<div class="text-dark fw-medium">Behance</div>
-														<div class="fs-7">Design Platform</div>
+														<div class="text-dark fw-medium">{{ service.name_en }}</div>
+														<div class="fs-7">{% if service.status %}Running{% else %}Stopped{% endif %}</div>
 													</div>
 												</div>
-												<button class="btn mnw-125p btn-outline-primary">
-													Enable
-												</button>
-											</div>
-										</li>
-										<li class="advance-list-item transform-none shadow-none">
-											<div class="d-flex align-items-center justify-content-between">
-												<div class="media align-items-center">
-													<div class="media-head me-3">
-														<div class="avatar">
-															<img src="/static/dist/img/symbol-avatar-5.png" alt="user" class="avatar-img">
-														</div>
-													</div>
-													<div class="media-body">
-														<div class="text-dark fw-medium">Dribble</div>
-														<div class="fs-7">Portfolio</div>
-													</div>
-												</div>
-												<button class="btn mnw-125p btn-outline-danger">
+												{% if service.status %}
+												<a href="/settings/services/{{ service.id }}/toggle/" class="btn mnw-125p btn-outline-danger">
 													Disable
-												</button>
-											</div>
-										</li>
-										<li class="advance-list-item transform-none shadow-none">
-											<div class="d-flex align-items-center justify-content-between">
-												<div class="media align-items-center">
-													<div class="media-head me-3">
-														<div class="avatar">
-															<img src="/static/dist/img/symbol-avatar-14.png" alt="user" class="avatar-img">
-														</div>
-													</div>
-													<div class="media-body">
-														<div class="text-dark fw-medium">Intercom</div>
-														<div class="fs-7">Chat Integrations</div>
-													</div>
-												</div>
-												<button class="btn mnw-125p btn-outline-primary">
+												</a>
+												{% else %}
+												<a href="/settings/services/{{ service.id }}/toggle/" class="btn mnw-125p btn-outline-primary">
 													Enable
-												</button>
+												</a>
+												{% endif %}
 											</div>
 										</li>
-										<li class="advance-list-item transform-none shadow-none">
-											<div class="d-flex align-items-center justify-content-between">
-												<div class="media align-items-center">
-													<div class="media-head me-3">
-														<div class="avatar">
-															<img src="/static/dist/img/symbol-avatar-16.png" alt="user" class="avatar-img">
-														</div>
-													</div>
-													<div class="media-body">
-														<div class="text-dark fw-medium">Gitlab</div>
-														<div class="fs-7">Developer Platform</div>
-													</div>
-												</div>
-												<button class="btn mnw-125p btn-outline-primary">
-													Enable
-												</button>
-											</div>
-										</li>
+										{% endfor %}
 									</ul>
 
 								</div>

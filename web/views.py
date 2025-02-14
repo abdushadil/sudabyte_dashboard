@@ -72,6 +72,21 @@ def users_create(request):
 # Settings Management
 @user_access
 def settings(request):
+    services = Service.objects.all()
     return render(request, 'settings.html', {
-        "page_name": "Settings"
+        "page_name": "Settings",
+        "services": services
     })
+    
+
+@user_access
+def service_toggle(request, service_id):
+    service = Service.objects.get(id=service_id)
+    if service.status:
+        service.status = False
+    else:
+        service.status = True
+    
+    service.save()
+    
+    return redirect('/settings/')

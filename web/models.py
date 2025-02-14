@@ -29,3 +29,15 @@ class User(models.Model):
     
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+class Service(models.Model):
+    name_ar = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    status = models.BooleanField(default=False)
+    logo = models.ImageField(upload_to='services/')
+    
+    class Meta:
+        db_table = 'services'
+    
+    def __str__(self):
+        return self.name_en
